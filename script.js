@@ -23,3 +23,35 @@ function clearError() {
   emailError.style.display = 'none';
   emailInput.setAttribute('aria-invalid', 'false');
 }
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const emailValue = emailInput.value.trim();
+
+  if (emailValue === '' || !validateEmail(emailValue)) {
+    showError();
+  } else {
+    // Valid submission
+    clearError();
+    userEmailSpan.textContent = emailValue;
+
+    // Switch views
+    card.style.display = 'none';
+    successMessage.classList.remove('hidden');
+  }
+});
+
+// Clear error on input
+emailInput.addEventListener('input', () => {
+  if (emailInput.classList.contains('error')) {
+    clearError();
+  }
+});
+
+dismissBtn.addEventListener('click', () => {
+  // Reset everything
+  successMessage.classList.add('hidden');
+  card.style.display = 'flex';
+  form.reset();
+  clearError();
+});
