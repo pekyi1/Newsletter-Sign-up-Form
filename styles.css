@@ -155,3 +155,27 @@ input[type="email"].error {
   background-color: var(--color-error-bg);
   color: var(--color-error-text);
 }
+
+.btn-primary {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--color-dark-slate-grey);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #FF6257 0%, #FF6257 100%);
+  /* Solid brand color on hover as per some designs, or gradient */
+  background-color: var(--color-primary-hover);
+  box-shadow: 0px 10px 20px rgba(255, 98, 87, 0.4);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
