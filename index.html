@@ -26,6 +26,17 @@
           <li>Measuring to ensure updates are a success</li>
           <li>And much more!</li>
         </ul>
+
+        <form id="signup-form" novalidate>
+          <div class="input-group">
+            <div class="label-row">
+              <label for="email">Email address</label>
+              <span class="error-msg" id="email-error">Valid email required</span>
+            </div>
+            <input type="email" id="email" name="email" placeholder="email@company.com" aria-describedby="email-error">
+          </div>
+          <button type="submit" class="btn-primary">Subscribe to monthly newsletter</button>
+        </form>
       </div>
     </div>
   </main>
