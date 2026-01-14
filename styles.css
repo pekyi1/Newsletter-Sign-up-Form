@@ -1,4 +1,25 @@
-/* Initial styles */
-body {
+:root {
+  --color-primary: #FF6257;
+  --color-primary-hover: #ff4e42;
+  --color-dark-slate-grey: #242742;
+  --color-charcoal-grey: #36384D;
+  --color-grey: #9294a0;
+  --color-white: #FFFFFF;
+  --color-pale-navy: #36384D;
+  --color-error-bg: #ffe8e6;
+  --color-error-text: #FF6257;
+
+  --font-family: 'Roboto', sans-serif;
+  --radius-lg: 36px;
+  --radius-md: 8px;
+  --spacing-base: 1rem;
+}
+
+/* Reset & Scaffolding */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
 }
