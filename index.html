@@ -4,54 +4,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Newsletter Sign-up | Stay Updated</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Newsletter sign-up form</title>
+  <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <main class="container">
-    <div class="card" id="signup-card">
-      <div class="card-image">
-        <img src="sign_up_illustration.png" alt="Newsletter Illustration">
-      </div>
-      <div class="card-content">
+  <main>
+    <!-- Sign-up Form Card -->
+    <article class="card" id="signup-card">
+      <div class="card__content">
         <h1>Stay updated!</h1>
         <p>Join 60,000+ product managers receiving monthly updates on:</p>
-        <ul class="benefits-list">
-          <li>Product discovery and building what matters</li>
-          <li>Measuring to ensure updates are a success</li>
-          <li>And much more!</li>
+        <ul class="benefit-list">
+          <li><img src="./assets/images/icon-list.svg" alt="" aria-hidden="true"> Product discovery and building what
+            matters</li>
+          <li><img src="./assets/images/icon-list.svg" alt="" aria-hidden="true"> Measuring to ensure updates are a
+            success</li>
+          <li><img src="./assets/images/icon-list.svg" alt="" aria-hidden="true"> And much more!</li>
         </ul>
 
-        <form id="signup-form" novalidate>
-          <div class="input-group">
+        <form id="newsletter-form" novalidate>
+          <div class="form-group">
             <div class="label-row">
               <label for="email">Email address</label>
               <span class="error-msg" id="email-error">Valid email required</span>
             </div>
             <input type="email" id="email" name="email" placeholder="email@company.com" aria-describedby="email-error">
           </div>
-          <button type="submit" class="btn-primary">Subscribe to monthly newsletter</button>
+          <button type="submit" class="btn">Subscribe to monthly newsletter</button>
         </form>
       </div>
-    </div>
 
-    <div class="success-message hidden" id="success-message">
-      <div class="success-content">
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
-          <circle cx="32" cy="32" r="32" fill="#FF6257" />
-          <path d="M18 32L27 41L45 23" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <h1>Thanks for subscribing!</h1>
-        <p>A confirmation email has been sent to <strong id="user-email">ash@loremcompany.com</strong>.
-          Please open it and click the button inside to confirm your subscription.</p>
-        <button id="dismiss-btn" class="btn-primary">Dismiss message</button>
+      <div class="card__image">
+        <picture>
+          <source media="(min-width: 800px)" srcset="./assets/images/illustration-sign-up-desktop.svg">
+          <img src="./assets/images/illustration-sign-up-mobile.svg"
+            alt="Newsletter sign up illustration showing charts and stats">
+        </picture>
       </div>
-    </div>
+    </article>
+
+    <!-- Success Message Card -->
+    <article class="card success-card hidden" id="success-card">
+      <div class="success-content">
+        <img src="./assets/images/icon-success.svg" alt="Success icon" class="icon-success">
+        <h1>Thanks for subscribing!</h1>
+        <p>A confirmation email has been sent to <span id="user-email">bash@loremcompany.com</span>.
+          Please open it and click the button inside to confirm your subscription.</p>
+      </div>
+      <button type="button" class="btn" id="dismiss-btn">Dismiss message</button>
+    </article>
   </main>
 
   <script src="script.js"></script>

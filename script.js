@@ -1,12 +1,12 @@
-const form = document.getElementById('signup-form');
+const form = document.getElementById('newsletter-form');
 const emailInput = document.getElementById('email');
 const emailError = document.getElementById('email-error');
-const card = document.getElementById('signup-card');
-const successMessage = document.getElementById('success-message');
-const dismissBtn = document.getElementById('dismiss-btn');
+const signupCard = document.getElementById('signup-card');
+const successCard = document.getElementById('success-card');
 const userEmailSpan = document.getElementById('user-email');
+const dismissBtn = document.getElementById('dismiss-btn');
 
-// Email Regex Validation
+// Regex for email validation
 function validateEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(String(email).toLowerCase());
@@ -15,16 +15,14 @@ function validateEmail(email) {
 function showError() {
   emailInput.classList.add('error');
   emailError.style.display = 'block';
-  emailInput.setAttribute('aria-invalid', 'true');
 }
 
-function clearError() {
+function hideError() {
   emailInput.classList.remove('error');
   emailError.style.display = 'none';
-  emailInput.setAttribute('aria-invalid', 'false');
 }
 
-form.addEventListener('submit', (e) => {
+function handleSubmit(e) {
   e.preventDefault();
   const emailValue = emailInput.value.trim();
 
@@ -32,26 +30,33 @@ form.addEventListener('submit', (e) => {
     showError();
   } else {
     // Valid submission
-    clearError();
+    hideError();
     userEmailSpan.textContent = emailValue;
 
-    // Switch views
-    card.style.display = 'none';
-    successMessage.classList.remove('hidden');
+    // Toggle cards
+    signupCard.classList.add('hidden');
+    successCard.classList.remove('hidden');
   }
-});
+}
+
+function handleDismiss() {
+  // Reset form
+  form.reset();
+  hideError();
+
+  // Toggle cards back
+  successCard.classList.add('hidden');
+  signupCard.classList.remove('hidden');
+}
+
+// Event Listeners
+form.addEventListener('submit', handleSubmit);
 
 // Clear error on input
 emailInput.addEventListener('input', () => {
   if (emailInput.classList.contains('error')) {
-    clearError();
+    hideError();
   }
 });
 
-dismissBtn.addEventListener('click', () => {
-  // Reset everything
-  successMessage.classList.add('hidden');
-  card.style.display = 'flex';
-  form.reset();
-  clearError();
-});
+dismissBtn.addEventListener('click', handleDismiss);
